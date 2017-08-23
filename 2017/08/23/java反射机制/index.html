@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="1.反射的定义反射是：指程序可以访问、检测和修改它本身状态或行为的一种能力在java中反射主要通过以下两个java特性来完成工作的。   Class 类 java.lang.reflect   field method constructor   在java中我们常用反射做以下的事情   获取类型的相关信息 动态调用方法 动态构造对象 从程序集中获得类型。   2. 反射的原理 一段代码要想在ja">
+<meta name="description" content="1.反射的定义反射是：指程序可以访问、检测和修改它本身状态或行为的一种能力在java中反射主要通过以下两个java特性来完成工作的。   Class 类 java.lang.reflect   field method constructor   在java中我们常用反射做以下的事情   获取类型的相关信息 动态调用方法 动态构造对象 从程序集中获得类型。">
 <meta name="keywords" content="Java特性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java反射机制">
 <meta property="og:url" content="http://yoursite.com/2017/08/23/java反射机制/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.反射的定义反射是：指程序可以访问、检测和修改它本身状态或行为的一种能力在java中反射主要通过以下两个java特性来完成工作的。   Class 类 java.lang.reflect   field method constructor   在java中我们常用反射做以下的事情   获取类型的相关信息 动态调用方法 动态构造对象 从程序集中获得类型。   2. 反射的原理 一段代码要想在ja">
+<meta property="og:description" content="1.反射的定义反射是：指程序可以访问、检测和修改它本身状态或行为的一种能力在java中反射主要通过以下两个java特性来完成工作的。   Class 类 java.lang.reflect   field method constructor   在java中我们常用反射做以下的事情   获取类型的相关信息 动态调用方法 动态构造对象 从程序集中获得类型。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3357812-379b0f562f5852fb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-23T09:18:28.735Z">
+<meta property="og:updated_time" content="2017-08-23T09:19:27.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java反射机制">
-<meta name="twitter:description" content="1.反射的定义反射是：指程序可以访问、检测和修改它本身状态或行为的一种能力在java中反射主要通过以下两个java特性来完成工作的。   Class 类 java.lang.reflect   field method constructor   在java中我们常用反射做以下的事情   获取类型的相关信息 动态调用方法 动态构造对象 从程序集中获得类型。   2. 反射的原理 一段代码要想在ja">
+<meta name="twitter:description" content="1.反射的定义反射是：指程序可以访问、检测和修改它本身状态或行为的一种能力在java中反射主要通过以下两个java特性来完成工作的。   Class 类 java.lang.reflect   field method constructor   在java中我们常用反射做以下的事情   获取类型的相关信息 动态调用方法 动态构造对象 从程序集中获得类型。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3357812-379b0f562f5852fb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -383,10 +383,10 @@
 <li>获取类型的相关信息</li>
 <li>动态调用方法</li>
 <li>动态构造对象</li>
-<li>从程序集中获得类型。</li>
+<li>从程序集中获得类型。<a id="more"></a>
+<h1 id="2-反射的原理"><a href="#2-反射的原理" class="headerlink" title="2. 反射的原理"></a>2. 反射的原理</h1><img src="http://upload-images.jianshu.io/upload_images/3357812-379b0f562f5852fb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="java类加载"></li>
 </ul>
 </blockquote>
-<h1 id="2-反射的原理"><a href="#2-反射的原理" class="headerlink" title="2. 反射的原理"></a>2. 反射的原理</h1><p><img src="http://upload-images.jianshu.io/upload_images/3357812-379b0f562f5852fb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="java类加载"></p>
 <p>一段代码要想在java中执行，首先要把java源码（.java文件）进行编译从而生成机器码（.class文件），然后class文件会经过类加载器加载到内存中，并在启动main方法时候执行。</p>
 <p>在类加载过程中，ClassLoader会把类的引用加载到类<strong>方法区</strong>，并且在<strong>堆内存建立Class对象</strong>保存文件中的Class信息。这个不是new出来的对象，而是类的类型对象，每个类只有一个class对象，作为方法区类的数据结构的接口。jvm创建对象前，会先检查类是否加载，寻找类对应的class对象，若加载好，则为你的对象分配内存，初始化。</p>
 <p>使用反射的好处是，你不必在jvm启动的时候就知道所有可能需要的类的信息，而是在程序运行过程中，根据程序的需要，动态加载类的信息，和在程序运行过程中动态获取类的信息，而且由于加载的是class文件，并且没有规定这个文件的来源，所以可以从网络，数据库等地方动态加载java信息。</p>
